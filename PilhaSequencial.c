@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "PilhaSequencial.h" //inclui os Protótipos
+#include "PilhaSequencial.h" //inclui os Protï¿½tipos
 
-//Definição do tipo Pilha
+//Definiï¿½ï¿½o do tipo Pilha
 struct pilha{
     int qtd;
     struct aluno dados[MAX];
@@ -78,6 +78,19 @@ void imprime_Pilha(Pilha* pi){
 }
 
 Pilha* inverte_pilha(Pilha* pi){
-//seu codigo aqui
-  return NULL;
+    if(pi==NULL){
+        return NULL;
+    }
+    Pilha *novaPilha= cria_Pilha();
+    struct aluno al;
+    while (tamanho_Pilha(pi)>0)
+    {
+        consulta_topo_Pilha(pi,&al);
+        insere_Pilha(novaPilha,al);
+        remove_Pilha(pi);
+    }
+    libera_Pilha(pi);
+    return novaPilha;
+    
+    
 }
